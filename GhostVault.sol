@@ -57,7 +57,6 @@ contract GhostVault is ERC4626{
 
     ERC20 public immutable asset;
 
-
     constructor(
         ERC20 _asset,
         string memory _name,

@@ -23,7 +23,7 @@ interface IERC20 {
 
 contract GhostVault is ERC4626{
 
-    address constant USDC_ADDRESS = 0xe9DcE89B076BA6107Bb64EF30678efec11939234;
+    // address constant USDC_ADDRESS = 0xe9DcE89B076BA6107Bb64EF30678efec11939234;
     address private constant POOL_ADDRESS_PROVIDER = 0xeb7A892BB04A8f836bDEeBbf60897A7Af1Bf5d7F;
     address private AAVE_LENDING_POOL_ADDRESS; 
     address private constant PRICE_ORACLE;
@@ -31,7 +31,7 @@ contract GhostVault is ERC4626{
     // mapping for users to track their deposited balances
     mapping(address => uint256) public balances;
     
-    IERC20 public USDC = IERC20(USDC_ADDRESS);
+    // IERC20 public USDC = IERC20(USDC_ADDRESS);
     IPool private lendingPool;
     IPriceOracle private priceOracle;
 
@@ -104,6 +104,36 @@ contract GhostVault is ERC4626{
         lendingPool.supply(asset, amount, address(this), 0);
     }
 
+    /*//////////////////////////////////////////////////////////////
+                            ACCOUNTING LOGIC
+    //////////////////////////////////////////////////////////////*/
+
+    function totalAssets() public view virtual returns (uint256);
+
+    function convertToShares(uint256 assets) public view virtual returns (uint256) {
+        return  assets;
+    }
+
+    function convertToAssets(uint256 shares) public view virtual returns (uint256) {
+        return  assets;
+    }
+
+    function previewDeposit(uint256 assets) public view virtual returns (uint256) {
+        return convertToShares(assets);
+    }
+
+    function previewMint(uint256 shares) public view virtual returns (uint256) {
+        return  assets;
+    }
+
+    function previewWithdraw(uint256 assets) public view virtual returns (uint256) {
+        return  assets;
+    }
+
+    function previewRedeem(uint256 shares) public view virtual returns (uint256) {
+        return convertToAssets(shares);
+    }
+
 
 
 
@@ -121,6 +151,8 @@ contract GhostVault is ERC4626{
         return priceOracle.getAssetPrice(USDC_ADDRESS);
 
     }
+
+    
 
 
 

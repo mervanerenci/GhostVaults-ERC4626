@@ -18,7 +18,7 @@ GhostVault is a smart contract that implements the ERC-4626 standard for tokeniz
 
 
 ## User Contract
-The User contract is a Solidity smart contract that facilitates user interactions and transactions. It allows users to deposit and withdraw USDC tokens to and from a vault, as well as send tokens to multiple recipients using a batcher contract.
+The User contract is a Solidity smart contract that facilitates user interactions and transactions. It allows users to deposit and withdraw USDC tokens to and from a vault, as well as send tokens to multiple recipients using Batcher contract (another project i developed, check it out!).
 
 ### Example Usage
 Here's an example of how to use the User contract:

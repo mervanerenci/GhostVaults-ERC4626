@@ -3,7 +3,7 @@
 GhostVaults Project consists of two contracts: a User contract for manual testing logics and user interactions, and a GhostVault ERC4626 Vaults contract for managing the GhostVaults themselves.
 
 ## GhostVault
-GhostVault is a smart contract that allows users to deposit and withdraw ERC20 tokens using the Aave lending pool. Users can earn interest on their deposits and redeem their shares at any time.
+GhostVault is a smart contract that implements the ERC-4626 standard for tokenized vaults. ERC-4626 is an extension of ERC-20 that provides a standard interface for vaults that hold a single underlying ERC-20 token and mint shares to represent the proportional ownership of the vault assets. GhostVault uses the Aave lending pool to lend and borrow tokens, and the Aave price oracle to get the current market prices of the tokens.
 
 ### Features
 - GhostVault is an ERC4626 implementation, which means it follows the standard interface for vaults that hold ERC20 tokens.
